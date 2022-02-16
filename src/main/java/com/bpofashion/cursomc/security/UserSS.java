@@ -35,7 +35,7 @@ public class UserSS implements UserDetails{
 
 
 
-	private Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -74,6 +74,10 @@ public class UserSS implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+	
+	public boolean hasRole(Perfil perfil) {
+		return getAuthorities().contains(new SimpleGrantedAuthority(perfil.getDescricao()));
 	}
 
 }
